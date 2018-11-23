@@ -1,0 +1,186 @@
+C:\DotNet\examples-master\My Calc\My Calc\bin\ApplicationInsights.config
+C:\DotNet\examples-master\My Calc\My Calc\bin\My Calc.dll.config
+C:\DotNet\examples-master\My Calc\My Calc\bin\My Calc.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\My Calc.pdb
+C:\DotNet\examples-master\My Calc\My Calc\bin\Antlr3.Runtime.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\Microsoft.AI.Agent.Intercept.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\Microsoft.AI.DependencyCollector.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\Microsoft.AI.Web.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\Microsoft.AI.WindowsServer.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\Microsoft.ApplicationInsights.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\Microsoft.Web.Infrastructure.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\Newtonsoft.Json.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\System.Web.Helpers.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\System.Web.Mvc.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\System.Web.Optimization.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\System.Web.Razor.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\System.Web.WebPages.Deployment.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\System.Web.WebPages.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\System.Web.WebPages.Razor.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\WebGrease.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\DotNet\examples-master\My Calc\My Calc\bin\System.Web.Helpers.xml
+C:\DotNet\examples-master\My Calc\My Calc\bin\System.Web.Mvc.xml
+C:\DotNet\examples-master\My Calc\My Calc\bin\System.Web.Optimization.xml
+C:\DotNet\examples-master\My Calc\My Calc\bin\System.Web.Razor.xml
+C:\DotNet\examples-master\My Calc\My Calc\bin\System.Web.WebPages.xml
+C:\DotNet\examples-master\My Calc\My Calc\bin\System.Web.WebPages.Deployment.xml
+C:\DotNet\examples-master\My Calc\My Calc\bin\System.Web.WebPages.Razor.xml
+C:\DotNet\examples-master\My Calc\My Calc\bin\Antlr3.Runtime.pdb
+C:\DotNet\examples-master\My Calc\My Calc\bin\Newtonsoft.Json.xml
+C:\DotNet\examples-master\My Calc\My Calc\bin\Microsoft.ApplicationInsights.xml
+C:\DotNet\examples-master\My Calc\My Calc\bin\Microsoft.AI.DependencyCollector.xml
+C:\DotNet\examples-master\My Calc\My Calc\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\DotNet\examples-master\My Calc\My Calc\bin\Microsoft.AI.WindowsServer.xml
+C:\DotNet\examples-master\My Calc\My Calc\bin\Microsoft.AI.Web.xml
+C:\DotNet\examples-master\My Calc\My Calc\obj\Debug\My Calc.csprojAssemblyReference.cache
+C:\DotNet\examples-master\My Calc\My Calc\obj\Debug\My_Calc.Resources.CalcResources.resources
+C:\DotNet\examples-master\My Calc\My Calc\obj\Debug\My Calc.csproj.GenerateResource.cache
+C:\DotNet\examples-master\My Calc\My Calc\obj\Debug\My Calc.csproj.CoreCompileInputs.cache
+C:\DotNet\examples-master\My Calc\My Calc\obj\Debug\My Calc.csproj.CopyComplete
+C:\DotNet\examples-master\My Calc\My Calc\obj\Debug\My Calc.dll
+C:\DotNet\examples-master\My Calc\My Calc\obj\Debug\My Calc.pdb
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\csc.exe
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\csc.exe.config
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\csc.rsp
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\csi.exe
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\csi.exe.config
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\csi.rsp
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.AppContext.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.Collections.Immutable.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.Console.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.Diagnostics.Process.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.IO.Compression.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.IO.FileSystem.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.IO.Pipes.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.Reflection.Metadata.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.Security.AccessControl.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.Security.Claims.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.Security.Principal.Windows.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.Threading.Thread.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.ValueTuple.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.Xml.XmlDocument.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.Xml.XPath.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\vbc.exe
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\vbc.exe.config
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\vbc.rsp
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\VBCSCompiler.exe
+C:\DotNet\examples-master\My Calc\My Calc\bin\roslyn\VBCSCompiler.exe.config
+C:\DotNet\MyCalc\My Calc\bin\ApplicationInsights.config
+C:\DotNet\MyCalc\My Calc\bin\My Calc.dll.config
+C:\DotNet\MyCalc\My Calc\bin\My Calc.dll
+C:\DotNet\MyCalc\My Calc\bin\My Calc.pdb
+C:\DotNet\MyCalc\My Calc\bin\roslyn\csc.exe
+C:\DotNet\MyCalc\My Calc\bin\roslyn\csc.exe.config
+C:\DotNet\MyCalc\My Calc\bin\roslyn\csc.rsp
+C:\DotNet\MyCalc\My Calc\bin\roslyn\csi.exe
+C:\DotNet\MyCalc\My Calc\bin\roslyn\csi.exe.config
+C:\DotNet\MyCalc\My Calc\bin\roslyn\csi.rsp
+C:\DotNet\MyCalc\My Calc\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\DotNet\MyCalc\My Calc\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\DotNet\MyCalc\My Calc\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.AppContext.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.Collections.Immutable.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.Console.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.Diagnostics.Process.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.IO.Compression.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.IO.FileSystem.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.IO.Pipes.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.Reflection.Metadata.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.Security.AccessControl.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.Security.Claims.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.Security.Principal.Windows.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.Threading.Thread.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.ValueTuple.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.Xml.XmlDocument.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.Xml.XPath.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\DotNet\MyCalc\My Calc\bin\roslyn\vbc.exe
+C:\DotNet\MyCalc\My Calc\bin\roslyn\vbc.exe.config
+C:\DotNet\MyCalc\My Calc\bin\roslyn\vbc.rsp
+C:\DotNet\MyCalc\My Calc\bin\roslyn\VBCSCompiler.exe
+C:\DotNet\MyCalc\My Calc\bin\roslyn\VBCSCompiler.exe.config
+C:\DotNet\MyCalc\My Calc\bin\Antlr3.Runtime.dll
+C:\DotNet\MyCalc\My Calc\bin\Microsoft.AI.Agent.Intercept.dll
+C:\DotNet\MyCalc\My Calc\bin\Microsoft.AI.DependencyCollector.dll
+C:\DotNet\MyCalc\My Calc\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\DotNet\MyCalc\My Calc\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\DotNet\MyCalc\My Calc\bin\Microsoft.AI.Web.dll
+C:\DotNet\MyCalc\My Calc\bin\Microsoft.AI.WindowsServer.dll
+C:\DotNet\MyCalc\My Calc\bin\Microsoft.ApplicationInsights.dll
+C:\DotNet\MyCalc\My Calc\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\DotNet\MyCalc\My Calc\bin\Microsoft.Web.Infrastructure.dll
+C:\DotNet\MyCalc\My Calc\bin\Newtonsoft.Json.dll
+C:\DotNet\MyCalc\My Calc\bin\System.Web.Helpers.dll
+C:\DotNet\MyCalc\My Calc\bin\System.Web.Mvc.dll
+C:\DotNet\MyCalc\My Calc\bin\System.Web.Optimization.dll
+C:\DotNet\MyCalc\My Calc\bin\System.Web.Razor.dll
+C:\DotNet\MyCalc\My Calc\bin\System.Web.WebPages.Deployment.dll
+C:\DotNet\MyCalc\My Calc\bin\System.Web.WebPages.dll
+C:\DotNet\MyCalc\My Calc\bin\System.Web.WebPages.Razor.dll
+C:\DotNet\MyCalc\My Calc\bin\WebGrease.dll
+C:\DotNet\MyCalc\My Calc\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\DotNet\MyCalc\My Calc\bin\System.Web.Helpers.xml
+C:\DotNet\MyCalc\My Calc\bin\System.Web.Mvc.xml
+C:\DotNet\MyCalc\My Calc\bin\System.Web.Optimization.xml
+C:\DotNet\MyCalc\My Calc\bin\System.Web.Razor.xml
+C:\DotNet\MyCalc\My Calc\bin\System.Web.WebPages.xml
+C:\DotNet\MyCalc\My Calc\bin\System.Web.WebPages.Deployment.xml
+C:\DotNet\MyCalc\My Calc\bin\System.Web.WebPages.Razor.xml
+C:\DotNet\MyCalc\My Calc\bin\Antlr3.Runtime.pdb
+C:\DotNet\MyCalc\My Calc\bin\Newtonsoft.Json.xml
+C:\DotNet\MyCalc\My Calc\bin\Microsoft.ApplicationInsights.xml
+C:\DotNet\MyCalc\My Calc\bin\Microsoft.AI.DependencyCollector.xml
+C:\DotNet\MyCalc\My Calc\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\DotNet\MyCalc\My Calc\bin\Microsoft.AI.WindowsServer.xml
+C:\DotNet\MyCalc\My Calc\bin\Microsoft.AI.Web.xml
+C:\DotNet\MyCalc\My Calc\obj\Debug\My Calc.csprojAssemblyReference.cache
+C:\DotNet\MyCalc\My Calc\obj\Debug\My_Calc.Resources.CalcResources.resources
+C:\DotNet\MyCalc\My Calc\obj\Debug\My Calc.csproj.GenerateResource.cache
+C:\DotNet\MyCalc\My Calc\obj\Debug\My Calc.csproj.CoreCompileInputs.cache
+C:\DotNet\MyCalc\My Calc\obj\Debug\My Calc.csproj.CopyComplete
+C:\DotNet\MyCalc\My Calc\obj\Debug\My Calc.dll
+C:\DotNet\MyCalc\My Calc\obj\Debug\My Calc.pdb
