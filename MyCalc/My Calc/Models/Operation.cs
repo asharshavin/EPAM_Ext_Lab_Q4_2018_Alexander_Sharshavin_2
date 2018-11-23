@@ -8,7 +8,11 @@ namespace My_Calc.Models
     {
         [Display(Name = "Add", ResourceType = typeof(CalcResources))]
         Add,
+        [Display(Name = "Sub", ResourceType = typeof(CalcResources))]
+        Sub,
         [Display(Name = "Mult", ResourceType = typeof(CalcResources))]
-        Mult
+        Mult,
+        [Display(Name = "Div", ResourceType = typeof(CalcResources))]
+        Div
     }
 }

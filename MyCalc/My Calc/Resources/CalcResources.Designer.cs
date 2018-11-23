@@ -70,6 +70,15 @@ namespace My_Calc.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /.
+        /// </summary>
+        public static string Div {
+            get {
+                return ResourceManager.GetString("Div", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to History.
         /// </summary>
         public static string History {
@@ -102,6 +111,15 @@ namespace My_Calc.Resources {
         public static string Result {
             get {
                 return ResourceManager.GetString("Result", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -.
+        /// </summary>
+        public static string Sub {
+            get {
+                return ResourceManager.GetString("Sub", resourceCulture);
             }
         }
         

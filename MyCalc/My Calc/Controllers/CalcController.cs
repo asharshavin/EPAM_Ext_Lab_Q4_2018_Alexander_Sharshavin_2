@@ -46,15 +46,23 @@ namespace My_Calc.Controllers
         [HttpPost]
         public ActionResult Add(CalcModel model)
         {
-            int result = 0;
+            float result = 0;
             
             switch (model.Op)
             {
                 case Operation.Add: result = model.X + model.Y;
                     break;
+                case Operation.Sub:
+                    result = model.X - model.Y;
+                    break;
                 case Operation.Mult:
                     result = model.X * model.Y;
                     break;
+                case Operation.Div:if (model.Y == 0)
+                    { result = 0; }
+                    else
+                    { result = model.X /  model.Y; }
+                    break; 
             }
             DateTime now = DateTime.Now;
 
