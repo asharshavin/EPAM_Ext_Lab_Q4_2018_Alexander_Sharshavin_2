@@ -47,7 +47,8 @@ namespace My_Calc.Controllers
         public ActionResult Add(CalcModel model)
         {
             float result = 0;
-            
+            string resultstring = "";
+
             switch (model.Op)
             {
                 case Operation.Add: result = model.X + model.Y;
@@ -58,15 +59,18 @@ namespace My_Calc.Controllers
                 case Operation.Mult:
                     result = model.X * model.Y;
                     break;
-                case Operation.Div:if (model.Y == 0)
-                    { result = 0; }
+                case Operation.Div:
+             
+                    if (model.Y == 0)
+                    { resultstring = "Divide by zero."; }
                     else
-                    { result = model.X /  model.Y; }
+                    { result = (float) model.X /  model.Y; }
                     break; 
             }
             DateTime now = DateTime.Now;
-
-            model.Result = string.Format("{0:M}  {0:t}", now)+ "     " +string.Format("{0}{2}{1} = {3}\n", model.X, model.Y, model.Op.DisplayName(), result);
+            if (resultstring == "") { resultstring = string.Format("{0}", result); }
+            
+            model.Result = string.Format("{0:M}  {0:t}", now)+ "     " +string.Format("{0}{2}{1} = {3}\n", model.X, model.Y, model.Op.DisplayName(), resultstring);
 
             Results.Add(model.Result);
 
