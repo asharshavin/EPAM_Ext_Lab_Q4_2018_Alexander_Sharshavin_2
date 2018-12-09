@@ -54,12 +54,15 @@ namespace ConsoleApp
         }
 
     }
+    // ki. Каждый класс лучше выделять в отдельный файл. Модификаторы доступа всегда надо писать явно.
     class Task1_Square
     {
         public static void DoIt()
         {
             //Создание объекта для генерации чисел
-            Random rnd = new Random();
+            // ki. Комментарий тут не к чему,код должен сам себя описывать и надо название переменной писать так, чтобы по ней было всё понятно.
+            // ki. лучше использовать неявную типизацию/
+            var rnd = new Random();
 
             //Получить случайное число (в диапазоне от 0 до ...)
             int a = rnd.Next(1, int.MaxValue);
@@ -69,7 +72,9 @@ namespace ConsoleApp
             Console.Write("a (по умолчанию <{0}>) = ", a);
             string str = Console.ReadLine();
             a = Parse(str, a);
-            if (a < 0) return;
+            // ki. просто retrun без информации пользователю что произошло? Плюс форматирования кода нет!
+            if (a < 0)
+              return;
 
             Console.Write("b  (по умолчанию <{0}>) = ", b);
             str = Console.ReadLine();
@@ -200,10 +205,12 @@ namespace ConsoleApp
             n = Parse(str, n);
             if (n < 0) return;
 
+            // ki такой код просто нечитаем. Нужны отступы!
             for (int i = 0; i < n; i++)
             {
                 //for (int j = 0; j <= i; j++) Console.Write("*");
                 for (int j = 0; j < n - i; j++) Console.Write(" ");
+                // ki. этот харкод в условиях до добра не доведет.
                 for (int j = 0; j < i * 2 + 1; j++) Console.Write("*");
                 Console.WriteLine();
             }
@@ -362,6 +369,8 @@ class Task5_Summa
 class Task6_Shrift
 {
     [Flags]
+
+    // ki. С enum хорошоее и правильное решение! ЕЩе бы комментарии лишние убрать - по названиям всё прекрасно ясно!
     public enum Shrift
     {
         bold = 0x01, //жирный 
@@ -377,6 +386,7 @@ class Task6_Shrift
         do
         {
             string strShrift = "";
+            // ki. код совершенно не читаемый. 
             if ((myShrift & Shrift.bold) != Shrift.none) strShrift += " Bold";
             if ((myShrift & Shrift.italic) != Shrift.none) strShrift += " Italic";
             if ((myShrift & Shrift.underline) != Shrift.none) strShrift += " Underline";
@@ -427,6 +437,7 @@ class Task7_Sort
         Console.WriteLine();
     }
 
+    // ki. односимвольные названия переменных допустимы только в лямбда выражениях и в переменных управления циклами. Просто возьми за правило)
     static void Sort(int[] a)
     {
         int temp;
@@ -479,6 +490,7 @@ class Task8_3dArray
 
     static void ChangePositive(int[,,] a)
     {
+        // ki. вот здесь форматирование хорошее. И фигурные скобки лишние можно убрать, тогда читаться будет совсем просто.
         for (int i = 0; i < a.GetLength(0); i++)
         {
             for (int j = 0; j < a.GetLength(1); j++)
@@ -605,6 +617,8 @@ class Task11_AveragLenthOfWord
         Console.WriteLine("По умолчанию <{0}>", poems);
         string str = Console.ReadLine();
         if (str != "") poems = str;
+
+        // ki. лучше смотреть в сторону char.IsPunctuation(). Всегда можно погуглить на стэковерфлоу;)
         char[] div = { ' ', '.', ',', '?', '!' }; //создаем массив разделителей
         
         // Разбиваем строку на части
