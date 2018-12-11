@@ -16,14 +16,14 @@
     <Position X="0.5" Y="5.25" Width="1.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>User.cs</FileName>
+      <FileName>Users\User.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClassLibrary1.RegistredUsers">
     <Position X="4" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAA=</HashCode>
-      <FileName>RegistredUsers.cs</FileName>
+      <FileName>Users\RegistredUsers.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="AbstractUser" />
@@ -33,7 +33,7 @@
     <Position X="10.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAICAAAAQAAAAA=</HashCode>
-      <FileName>Message.cs</FileName>
+      <FileName>Chats\Message.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Attachment" />
@@ -43,7 +43,7 @@
     <Position X="8" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAABAAACAAABAAAAAAAAAIAAMAACgAAAAIAAAAIA=</HashCode>
-      <FileName>Chat.cs</FileName>
+      <FileName>Chats\Chat.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Message" />
@@ -54,49 +54,49 @@
     <Position X="1" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAQAAAAEAAAEAAAAAAAAAAQAEAA=</HashCode>
-      <FileName>AbstractUser.cs</FileName>
+      <FileName>Users\AbstractUser.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClassLibrary1.Admin">
     <Position X="2" Y="5.25" Width="1.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>User.cs</FileName>
+      <FileName>Users\User.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClassLibrary1.Moderator">
     <Position X="3.5" Y="5.25" Width="1.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>User.cs</FileName>
+      <FileName>Users\User.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClassLibrary1.Attachment">
     <Position X="10.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
-      <FileName>Attachment.cs</FileName>
+      <FileName>Chats\Attachment.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClassLibrary1.Text">
     <Position X="7.75" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
-      <FileName>Text.cs</FileName>
+      <FileName>Chats\Text.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClassLibrary1.Image">
     <Position X="9.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Image.cs</FileName>
+      <FileName>Chats\Image.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClassLibrary1.Music">
     <Position X="11.25" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Image.cs</FileName>
+      <FileName>Chats\Image.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

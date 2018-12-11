@@ -41,17 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractUser.cs" />
-    <Compile Include="Attachment.cs" />
-    <Compile Include="Chat.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="Image.cs" />
-    <Compile Include="Message.cs" />
+    <Compile Include="Users\AbstractUser.cs" />
+    <Compile Include="Chats\Attachment.cs" />
+    <Compile Include="Chats\Chat.cs" />
+    <Compile Include="Chats\Image.cs" />
+    <Compile Include="Chats\Message.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegistredUsers.cs" />
-    <Compile Include="Text.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="UsersOfChat.cs" />
+    <Compile Include="Users\RegistredUsers.cs" />
+    <Compile Include="Chats\Text.cs" />
+    <Compile Include="Users\User.cs" />
+    <Compile Include="Chats\UsersOfChat.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
