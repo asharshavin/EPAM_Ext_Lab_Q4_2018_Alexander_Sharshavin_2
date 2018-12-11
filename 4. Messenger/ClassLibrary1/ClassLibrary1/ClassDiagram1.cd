@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Список пользователей&#xD;&#xA;&#xD;&#xA;">
+    <Position X="2.135" Y="1.646" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Список чатов&#xD;&#xA;&#xD;&#xA;">
+    <Position X="9.708" Y="1.552" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Связь между списками пользователей и чатом многие-ко-многим ">
+    <Position X="5.906" Y="2.344" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Мессенджер. Описание&#xD;&#xA;1. Создаются две сущности: пользователи и чаты&#xD;&#xA;  - пользователи могут с разными правами&#xD;&#xA;  - чаты состоят из сообщений, сообщения могут содержать вложения разных типов (текст, картинка, музыка)&#xD;&#xA;2. Пользователь может быть нескольких чатах, в чате м.б. несколько пользователей.  Между ними свзяь &quot;многие-ко-многим&quot; (не знаю как отразить в диаграмме классов)&#xD;&#xA;3. У сообщения есть дата создания, для каждого чата устанавливается время редактирования сообщения. &#xD;&#xA;&#xD;&#xA;">
+    <Position X="1.25" Y="6.5" Height="2.635" Width="4.544" />
+  </Comment>
+  <Class Name="ClassLibrary1.User">
+    <Position X="0.5" Y="5.25" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary1.RegistredUsers">
+    <Position X="4" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>RegistredUsers.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AbstractUser" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ClassLibrary1.Message">
+    <Position X="10.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAICAAAAQAAAAA=</HashCode>
+      <FileName>Message.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Attachment" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ClassLibrary1.Chat">
+    <Position X="8" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAABAAACAAABAAAAAAAAAIAAMAACgAAAAIAAAAIA=</HashCode>
+      <FileName>Chat.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Message" />
+      <Property Name="RegistredUsers" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ClassLibrary1.AbstractUser">
+    <Position X="1" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAQAAAAEAAAEAAAAAAAAAAQAEAA=</HashCode>
+      <FileName>AbstractUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary1.Admin">
+    <Position X="2" Y="5.25" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary1.Moderator">
+    <Position X="3.5" Y="5.25" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary1.Attachment">
+    <Position X="10.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Attachment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary1.Text">
+    <Position X="7.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Text.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary1.Image">
+    <Position X="9.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Image.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary1.Music">
+    <Position X="11.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Image.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
