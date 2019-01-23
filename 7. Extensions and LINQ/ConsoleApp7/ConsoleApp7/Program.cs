@@ -39,6 +39,7 @@ namespace ConsoleApp7
             } while (strNumberOfTask != null || numberOfTask != 0);
         }
 
+        // ki. перепутал местами задание 1 и 2.
         public static void Task1_SumArray()
         {
             Console.Write("Введите не отрицательное целое число: ");
@@ -129,6 +130,9 @@ namespace ConsoleApp7
 
                 StopTimer(stopWatch);
 
+                // ki. в таком использовании лямбда выражений нет смысла. Их удобно применять именно по месту вызова, а не сохранять в
+                // переменной и передавать потом. ПРавильное использование, например, в linq запросах. За ошибку не считаю, но на
+                // будущее совет. 
                 // 4. Через делегат в виде лямбда выражения
                 StartTimer(stopWatch);
                 Function FindPositiveLambda = (int[] array) =>
