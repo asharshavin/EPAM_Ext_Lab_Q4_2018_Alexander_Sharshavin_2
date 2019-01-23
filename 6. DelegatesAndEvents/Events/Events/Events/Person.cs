@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Events
 {
+    // ki. Хорошая реализация. 
     class Person : IObserver
     {
         private string _name;
