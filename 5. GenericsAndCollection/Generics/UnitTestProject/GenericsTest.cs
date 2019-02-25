@@ -9,6 +9,7 @@ namespace UnitTestProject
     {
         [TestMethod]
         public void TestMethod1()
+            // ki. Назване TestSave подолшло бы больше
         {
             // Arrange
             var MyRepository = new Repository();
@@ -19,10 +20,12 @@ namespace UnitTestProject
             var MyList = MyRepository.GetAll();
 
             // Assert
+            // Неплохо, но еще лучше было бы проверить, что сохранены были именно эти элементы.
             Assert.AreEqual(MyList.Count, 2, "GetAll: Количество элементов не равно 2");
 
         }
         [TestMethod]
+        // ki. Аналогично - название недопустимое
         public void TestMethod2()
         {
             // Arrange
@@ -35,6 +38,7 @@ namespace UnitTestProject
             myResult  = MyRepository.Delete(0);
             var MyList = MyRepository.GetAll();
 
+            // ki. Хорошо было бы понять, что мы удалили именно тот элемент/
             // Assert
             Assert.AreEqual<long>(MyList.Count, 1, "Delte: Количество элементов не равно 1");
 

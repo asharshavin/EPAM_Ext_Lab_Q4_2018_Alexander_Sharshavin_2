@@ -74,6 +74,7 @@ namespace DelegatesAndEvents
         }
     }
 
+    // ki. не оставляй закомментированный код.
     /*
     class Program
     {
