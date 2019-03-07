@@ -3,29 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
 using System.Data.Common;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace DAL2MessengerConsole
 {
     public class UserRepository : IUserRepository
     {
-        private const string MessengerConnectionString = "MessengerConection";
         private DbProviderFactory factory;
         private readonly string connectionString;
 
 
-        public UserRepository()
+        public UserRepository(ConnectionStringSettings connectionStringItem)
         {
-            var connectionStringItem = ConfigurationManager.ConnectionStrings[MessengerConnectionString];
-
             if (connectionStringItem == null)
             {
-                Console.WriteLine("Cannot find MessengerConection in config.");
-                Console.ReadKey();
-
                 return;
             }
 

@@ -2,12 +2,23 @@
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DAL2MessengerConsole;
+using System.Configuration;
 
 namespace DAL2MessengerTest
 {
     [TestClass]
     public class DAL2MessengerTest
     {
+        private const string MessengerConnectionString = "MessengerConection";
+        UserRepository MyRepository;
+
+        public DAL2MessengerTest()
+        {
+            var connectionStringItem = ConfigurationManager.ConnectionStrings[MessengerConnectionString];
+            MyRepository = new UserRepository(connectionStringItem);
+
+        }
+
         [TestMethod]
         public void TestSave()
         {
@@ -15,7 +26,6 @@ namespace DAL2MessengerTest
             var name1String = "aplha";
             var name2String = "beta";
 
-            var MyRepository = new UserRepository();
             MyRepository.Save(new User() { id = 1, name = name1String });
             MyRepository.Save(new User() { id = 2, name = name2String });
 
@@ -36,7 +46,6 @@ namespace DAL2MessengerTest
             var name1String = "aplha";
             var name2String = "beta";
 
-            var MyRepository = new UserRepository();
             MyRepository.Save(new User() { id = 1, name = name1String });
             MyRepository.Save(new User() { id = 2, name = name2String });
 
@@ -55,7 +64,6 @@ namespace DAL2MessengerTest
             var name1String = "aplha";
             var name2String = "beta";
 
-            var MyRepository = new UserRepository();
             MyRepository.Save(new User() { id = 1, name = name1String });
             MyRepository.Save(new User() { id = 2, name = name2String });
 
@@ -63,7 +71,7 @@ namespace DAL2MessengerTest
             var resultName = MyRepository.Get(2).name;
 
             // Assert
-            Assert.AreEqual<string>(resultName, name2String, String.Format("Get: Некорректное имя пользователя с id 2. Получено {0}, ожидается {1}", resultName, name2String);
+            Assert.AreEqual<string>(resultName, name2String, String.Format("Get: Некорректное имя пользователя с id 2. Получено {0}, ожидается {1}", resultName, name2String));
 
         }
 
@@ -74,7 +82,6 @@ namespace DAL2MessengerTest
             var name1String = "aplha";
             var name2String = "beta";
 
-            var MyRepository = new UserRepository();
             MyRepository.Save(new User() { id = 1, name = name1String });
             MyRepository.Save(new User() { id = 2, name = name2String });
 
