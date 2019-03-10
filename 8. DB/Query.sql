@@ -7,10 +7,14 @@ GO
 
 /* Achtung! Перед использованием процедур сделать Publish !!! */
 
+--[ki. Обязательным требованием к написанию запросов является всегда указывать схему. Это увеличивает производительность, это обеспечивает сохранение планнов выполнения запросов:
+-- The reason is simple: SQL Server does cache the query plan for ad-hoc queries, but if the schema name isn’t present in the query the cache can’t be re-used for other users, only for the same user.]
+
 /*1	Работа с типами данных Date, NULL значениями, трехзначная логика. 
 Возвращение определенных значений в результатах запроса в зависимости от полученных первоначальных значений результата запроса. 
 Высветка в результатах запроса только определенных колонок.
 
+[ki. Not Accepted] 
 1.1	Выбрать в таблице Orders заказы, которые были доставлены после 6 мая 1998 года (колонка ShippedDate) включительно и которые доставлены с ShipVia >= 2. 
 Формат указания даты должен быть верным при любых региональных настройках,
 согласно требованиям статьи “Writing International Transact-SQL Statements” в Books Online раздел “Accessing and Changing Relational Data Overview”.
@@ -20,13 +24,16 @@ GO
 Ответ: Строки с ShippedDate со значением NULL в результат запроса не попали, т.к. любое сравнение с NULL есть NULL, т.е. не истина. 
 Чтобы показывались эти строки заменить на WHERE (T.ShippedDate>=@date OR T.ShippedDate IS NULL)AND T.ShipVia>=2
 */
+-- [ki.] Это условие не выполненно. Формат указания даты должен быть верным при любых региональных настройках, согласно требованиям статьи “Writing International Transact-SQL Statements” в Books Online раздел “Accessing and Changing Relational Data Overview”.
+-- Вот как должно быть CONVERT(DATETIME, '19980506', 101)  
 
 DECLARE @date date= '1998-05-06';  
 
 SELECT T.OrderID, T.ShippedDate, T.ShipVia
-FROM Northwind.Orders AS T 
+FROM Northwind.dbo.Orders AS T 
 WHERE T.ShippedDate>=@date AND T.ShipVia>=2
 
+--[ki. Accepted]
 /*1.2	Написать запрос, который выводит только недоставленные заказы из таблицы Orders. 
 В результатах запроса высвечивать для колонки ShippedDate вместо значений NULL строку ‘Not Shipped’ – использовать системную функцию CASЕ. 
 Запрос должен высвечивать только колонки OrderID и ShippedDate.
@@ -35,51 +42,58 @@ SELECT T.OrderID,
 	CASE 
 		WHEN T.ShippedDate IS NULL THEN 'Not shipped'
 	END AS ShippedState
-FROM Northwind.Orders AS T 
+FROM Northwind.dbo.Orders AS T 
 WHERE T.ShippedDate IS NULL
 
+--[ki. Accepted]
 /*1.3	Выбрать в таблице Orders заказы, которые были доставлены после 6 мая 1998 года (ShippedDate) не включая эту дату или которые еще не доставлены. 
 В запросе должны высвечиваться только колонки OrderID (переименовать в Order Number) и ShippedDate (переименовать в Shipped Date).
 В результатах запроса высвечивать для колонки ShippedDate вместо значений NULL строку ‘Not Shipped’, 
 для остальных значений высвечивать дату в формате по умолчанию.
 */
 
+DECLARE @date date= '1998-05-06';  
+
 SELECT T.OrderID AS OrderNumber, 
 	CASE 
 		WHEN T.ShippedDate IS NULL THEN 'Not shipped'
 		ELSE CAST(T.ShippedDate AS nvarchar(30)) 
 	END AS [Shipped Date]
-FROM Northwind.Orders AS T 
+FROM Northwind.dbo.Orders AS T 
 WHERE (T.ShippedDate>@date OR T.ShippedDate IS NULL)
 
+--[ki.] Еще бы хорошо писать N'USA'... accepted
 /*2	Использование операторов IN, DISTINCT, ORDER BY, NOT
 2.1	Выбрать из таблицы Customers всех заказчиков, проживающих в USA и Canada. Запрос сделать с только помощью оператора IN. 
 Высвечивать колонки с именем пользователя и названием страны в результатах запроса. Упорядочить результаты запроса по имени заказчиков и по месту проживания.
 */
 
 SELECT T.ContactName, T.Country 
-FROM Northwind.Customers AS T 
+FROM Northwind.dbo.Customers AS T 
 WHERE T.Country IN ('USA', 'Canada')
 ORDER BY T.ContactName, T.Country 
 
+--[ki. Accepted]
 /*2.2	Выбрать из таблицы Customers всех заказчиков, не проживающих в USA и Canada. Запрос сделать с помощью оператора IN. 
 Высвечивать колонки с именем пользователя и названием страны в результатах запроса. Упорядочить результаты запроса по имени заказчиков.
 */
 
 SELECT T.ContactName, T.Country 
-FROM Northwind.Customers AS T 
-WHERE T.Country NOT IN ('USA', 'Canada')
+FROM Northwind.dbo.Customers AS T 
+WHERE T.Country NOT IN (N'USA', N'Canada')
 ORDER BY T.ContactName
 
+--[ki. Accepted]
 /*2.3	Выбрать из таблицы Customers все страны, в которых проживают заказчики.
 Страна должна быть упомянута только один раз и список отсортирован по убыванию. 
 Не использовать предложение GROUP BY. Высвечивать только одну колонку в результатах запроса. 
 */
 
 SELECT DISTINCT T.Country 
-FROM Northwind.Customers AS T 
+FROM Northwind.dbo.Customers AS T 
 ORDER BY T.Country DESC
 
+--[ki. Accepted]
 /*3	Использование оператора BETWEEN, DISTINCT
 3.1	Выбрать все заказы (OrderID) из таблицы Order Details (заказы не должны повторяться),
 где встречаются продукты с количеством от 3 до 10 включительно – это колонка Quantity в таблице Order Details. 
@@ -87,9 +101,10 @@ ORDER BY T.Country DESC
 */
 
 SELECT DISTINCT T.OrderID
-FROM Northwind.[Order Details] AS T 
+FROM Northwind.dbo.[Order Details] AS T 
 WHERE T.Quantity BETWEEN 3 AND 10
 
+--[ki. Accepted]
 /*3.2	Выбрать всех заказчиков из таблицы Customers, у которых название страны начинается на буквы из диапазона b и g. Использовать оператор BETWEEN. 
 Проверить, что в результаты запроса попадает Germany. Запрос должен высвечивать только колонки CustomerID и Country и отсортирован по Country.
 */
@@ -98,7 +113,7 @@ WHERE T.Quantity BETWEEN 3 AND 10
 --GO
 
 SELECT T.CustomerID, T.Country 
-FROM Northwind.Customers AS T 
+FROM Northwind.dbo.Customers AS T 
 WHERE SUBSTRING(T.Country, 1, 1) BETWEEN 'b' AND 'g'
 ORDER BY T.Country 
 
@@ -129,10 +144,11 @@ Execution plan задачи 3.3
 --GO
 
 SELECT T.CustomerID, T.Country 
-FROM Northwind.Customers AS T 
+FROM Northwind.dbo.Customers AS T 
 WHERE T.Country LIKE '[b-g]%'
 ORDER BY T.Country 
 
+--[ki. accepted]
 /*4	Использование оператора LIKE
 4.1	В таблице Products найти все продукты (колонка ProductName), где встречается подстрока 'chocolade'. 
 Известно, что в подстроке 'chocolade' может быть изменена одна буква 'c' в середине - найти все продукты, которые удовлетворяют этому условию.
@@ -140,9 +156,10 @@ ORDER BY T.Country
 */
 
 SELECT T.ProductName 
-FROM Northwind.Products AS T 
+FROM Northwind.dbo.Products AS T 
 WHERE T.ProductName LIKE 'cho_olade'
 
+--[ki. Not accepted "Arithmetic overflow error converting float to data type numeric."] 
 /*5	Использование агрегатных функций (SUM, COUNT)
 5.1	Найти общую сумму всех заказов из таблицы Order Details с учетом количества закупленных товаров и скидок по ним. 
 Результат округлить до сотых и высветить в стиле 1 для типа данных money.  Скидка (колонка Discount) составляет процент из стоимости для данного товара. 
@@ -152,24 +169,32 @@ WHERE T.ProductName LIKE 'cho_olade'
 
 SELECT 
 	CAST(CAST(SUM(T.UnitPrice*(1-T.Discount)*T.Quantity ) AS numeric (10,2)) AS money) Totals
-FROM Northwind.[Order Details] AS T
+FROM Northwind.dbo.[Order Details] AS T
 
+-- ki. я бы так написал DECLARE @money_style int = 1
+/* SELECT 
+	CONVERT (nvarchar(100), CAST(SUM (OD.UnitPrice * (1 - OD.Discount) * Quantity) as money), @money_style) as Totals
+FROM dbo.[Order Details] OD*/
+
+--[ki. Accepted]
 /*5.2	По таблице Orders найти количество заказов, которые еще не были доставлены (т.е. в колонке ShippedDate нет значения даты доставки).
 Использовать при этом запросе только оператор COUNT. Не использовать предложения WHERE и GROUP.
 */
 
 SELECT 
 	COUNT(*) - COUNT(T.ShippedDate) CountOrders
-FROM Northwind.[Orders] AS T
+FROM Northwind.dbo.[Orders] AS T
 
+--[ki. accepted]
 /*5.3	По таблице Orders найти количество различных покупателей (CustomerID), сделавших заказы. 
 Использовать функцию COUNT и не использовать предложения WHERE и GROUP.
 */
 
 SELECT 
 	COUNT(DISTINCT T.CustomerID) CountCustomerID
-FROM Northwind.[Orders] AS T
+FROM Northwind.dbo.[Orders] AS T
 
+--[ki. accepted]
 /*6	Явное соединение таблиц, самосоединения, использование агрегатных функций и предложений GROUP BY и HAVING 
 6.1	По таблице Orders найти количество заказов с группировкой по годам. 
 В результатах запроса надо высвечивать две колонки c названиями Year и Total. Написать проверочный запрос, который вычисляет количество всех заказов.
@@ -177,15 +202,16 @@ FROM Northwind.[Orders] AS T
 
 SELECT  CAST(YEAR(T.OrderDate) AS char) Year, 
 		COUNT(DISTINCT T.OrderID) Total
-FROM Northwind.[Orders] AS T 
+FROM Northwind.dbo.[Orders] AS T 
 GROUP BY YEAR(T.OrderDate)
 
 UNION 
 
 SELECT  'ALL' Year, 
 		COUNT(DISTINCT T.OrderID) Total
-FROM Northwind.[Orders] AS T 
+FROM Northwind.dbo.[Orders] AS T 
 
+--[ki. Accepted]
 /*6.2 По таблице Orders найти количество заказов, cделанных каждым продавцом.
 Заказ для указанного продавца – это любая запись в таблице Orders, где в колонке EmployeeID задано значение для данного продавца. 
 В результатах запроса надо высвечивать колонку с именем продавца (Должно высвечиваться имя полученное конкатенацией LastName & FirstName. 
@@ -196,13 +222,14 @@ FROM Northwind.[Orders] AS T
 
 SELECT 
 	(SELECT Employees.LastName + ' '+ Employees.FirstName
-	FROM Northwind.Employees
+	FROM Northwind.dbo.Employees
 	WHERE Employees.EmployeeID = T.EmployeeID ) Seller, 
 	COUNT(T.OrderID) Amount
-FROM Northwind.[Orders] AS T 
+FROM Northwind.dbo.[Orders] AS T 
 GROUP BY T.EmployeeID
 ORDER BY COUNT(T.OrderID) DESC
 
+--[ki. accepted]
 /*6.3	По таблице Orders найти количество заказов, cделанных каждым продавцом и для каждого покупателя.
 Необходимо определить это только для заказов сделанных в 1998 году.
 В результатах запроса надо высвечивать колонку с именем продавца (название колонки ‘Seller’), колонку с именем покупателя (название колонки ‘Customer’) 
@@ -220,17 +247,18 @@ ALL		<имя>		<число продаж для данного покупател
 
 SELECT 
 	ISNULL((SELECT Employees.LastName + ' '+ Employees.FirstName
-	FROM Northwind.Employees
+	FROM Northwind.dbo.Employees
 	WHERE Employees.EmployeeID = T.EmployeeID ), 'ALL') Seller, 
 	ISNULL((SELECT Customers.ContactName
-	FROM Northwind.Customers
+	FROM Northwind.dbo.Customers
 	WHERE Customers.CustomerID = T.CustomerID ), 'ALL') Customer, 
 	COUNT(T.OrderID) Amount
-FROM Northwind.[Orders] AS T 
+FROM Northwind.dbo.[Orders] AS T 
 WHERE DATEPART(yyyy,T.OrderDate) = N'1998'
 GROUP BY CUBE  (T.EmployeeID, T.CustomerID)
 ORDER BY COUNT(T.OrderID) DESC
 
+-- [ki. accepted]
 /* 6.4	Найти покупателей и продавцов, которые живут в одном городе. Если в городе живут только один или несколько продавцов или только один или несколько покупателей,
 то информация о таких покупателя и продавцах не должна попадать в результирующий набор. Не использовать конструкцию JOIN. 
 В результатах запроса необходимо вывести следующие заголовки для результатов запроса: ‘Person’, ‘Type’ (здесь надо выводить строку ‘Customer’ или  ‘Seller’ в завимости от типа записи),
@@ -240,16 +268,16 @@ ORDER BY COUNT(T.OrderID) DESC
 SELECT	T.LastName + ' '+ T.FirstName AS Person, 
 		'Seller' AS Type, 
 		T.City AS City
-FROM Northwind.Employees AS T
+FROM Northwind.dbo.Employees AS T
 WHERE T.City  IN (
 	SELECT	City
 	FROM (SELECT DISTINCT City 
-		FROM Northwind.Employees
+		FROM Northwind.dbo.Employees
 
 		UNION ALL
 
 		SELECT DISTINCT City 
-		FROM Northwind.Customers ) AS TCity
+		FROM Northwind.dbo.Customers ) AS TCity
 	GROUP BY City
 	HAVING COUNT(*) > 1)
 
@@ -258,20 +286,21 @@ UNION ALL
 SELECT	T.ContactName, 
 		'Customer', 
 		T.City
-FROM Northwind.Customers AS T
+FROM Northwind.dbo.Customers AS T
 WHERE T.City  IN (
 	SELECT	City
 	FROM (SELECT DISTINCT City 
-		FROM Northwind.Employees
+		FROM Northwind.dbo.Employees
 
 		UNION ALL
 
 		SELECT DISTINCT City 
-		FROM Northwind.Customers ) AS TCity
+		FROM Northwind.dbo.Customers ) AS TCity
 	GROUP BY City
 	HAVING COUNT(*) > 1)
 ORDER BY City, Person
 
+--[ki. accepted]
 /* 6.5	Найти всех покупателей, которые живут в одном городе. В запросе использовать соединение таблицы Customers c собой - самосоединение. 
 Высветить колонки CustomerID и City. Запрос не должен высвечивать дублируемые записи. Для проверки написать запрос, который высвечивает города, которые встречаются более одного раза в таблице Customers.
 Это позволит проверить правильность запроса.
@@ -280,8 +309,8 @@ ORDER BY City, Person
 SELECT DISTINCT 
 		T.CustomerID, 
 		T.City
-FROM Northwind.Customers AS T
-INNER JOIN Northwind.Customers AS T0
+FROM Northwind.dbo.Customers AS T
+INNER JOIN Northwind.dbo.Customers AS T0
 ON T0.CustomerID<>T.CustomerID AND T0.City=T.City
 
 -- Проверочный запрос: высвечивает города, которые встречаются более одного раза в таблице Customers.
@@ -290,6 +319,7 @@ FROM Northwind.Customers
 GROUP BY City
 HAVING COUNT(*) > 1
 
+--[ki. accepted]
 /*6.6	По таблице Employees найти для каждого продавца его руководителя, т.е. кому он делает репорты. 
 Высветить колонки с именами 'User Name' (LastName) и 'Boss'. В колонках должны быть высвечены имена из колонки LastName. Высвечены ли все продавцы в этом запросе?
 
@@ -299,10 +329,11 @@ HAVING COUNT(*) > 1
 
 SELECT DISTINCT	T.LastName AS [User Name], 
 		T0.LastName AS Boss
-FROM Northwind.Employees AS T
-INNER JOIN Northwind.Employees AS T0
+FROM Northwind.dbo.Employees AS T
+INNER JOIN Northwind.dbo.Employees AS T0
 ON T.ReportsTo=T0.EmployeeID 
 
+--[ki. Accepted]
 /*7	Использование Inner JOIN
 7.1	Определить продавцов, которые обслуживают регион 'Western' (таблица Region). 
 Результаты запроса должны высвечивать два поля: 'LastName' продавца и название обслуживаемой территории ('TerritoryDescription' из таблицы Territories).
@@ -311,15 +342,16 @@ ON T.ReportsTo=T0.EmployeeID
 
 SELECT	E.LastName, 
 		T.TerritoryDescription
-FROM Northwind.EmployeeTerritories AS ET 
-	INNER JOIN Northwind.Employees AS E
+FROM Northwind.dbo.EmployeeTerritories AS ET 
+	INNER JOIN Northwind.dbo.Employees AS E
 	ON E.EmployeeID = ET.EmployeeID
-	INNER JOIN Northwind.Territories AS T
+	INNER JOIN Northwind.dbo.Territories AS T
 	ON T.TerritoryID = ET.TerritoryID
-		INNER JOIN Northwind.Region AS R
+		INNER JOIN Northwind.dbo.Region AS R
 		ON R.RegionID = T.RegionID 
 WHERE R.RegionDescription='Western'
 
+--[ki. accepted]
 /*8	Использование Outer JOIN
 8.1	Высветить в результатах запроса имена всех заказчиков из таблицы Customers и суммарное количество их заказов из таблицы Orders. 
 Принять во внимание, что у некоторых заказчиков нет заказов, но они также должны быть выведены в результатах запроса. 
@@ -328,12 +360,13 @@ WHERE R.RegionDescription='Western'
 
 SELECT	C.ContactName, 
 		COUNT(O.OrderID) CountOrder
-FROM Northwind.Customers AS C
-	LEFT OUTER JOIN Northwind.Orders AS O 
+FROM Northwind.dbo.Customers AS C
+	LEFT OUTER JOIN Northwind.dbo.Orders AS O 
 	ON C.CustomerID=O.CustomerID
 GROUP BY C.ContactName
 ORDER BY COUNT(O.OrderID)
 
+--[ki. Accepted]
 /*9	Использование подзапросов
 9.1	Высветить всех поставщиков колонка CompanyName в таблице Suppliers, у которых нет хотя бы одного продукта на складе (UnitsInStock в таблице Products равно 0).
 Использовать вложенный SELECT для этого запроса с использованием оператора IN. 
@@ -343,10 +376,10 @@ ORDER BY COUNT(O.OrderID)
 */
 
 SELECT T.CompanyName
-FROM Northwind.Suppliers AS T
+FROM Northwind.dbo.Suppliers AS T
 WHERE T.SupplierID IN 
 	(SELECT P.SupplierID 
-	FROM Northwind.Products AS P
+	FROM Northwind.dbo.Products AS P
 	WHERE P.UnitsInStock=0)
 
 /*10	Коррелированный запрос
@@ -354,21 +387,22 @@ WHERE T.SupplierID IN
 */
 
 SELECT E.LastName + ' '+ E.FirstName AS Seller
-FROM Northwind.Employees AS E
+FROM Northwind.dbo.Employees AS E
 WHERE (SELECT COUNT(DISTINCT O.OrderID) 
-	FROM Northwind.Orders AS O 
+	FROM Northwind.dbo.Orders AS O 
 	WHERE O.EmployeeID = E.EmployeeID) > 150
 
+-- [ki. accepted]
 /*11	Использование EXISTS
 11.1	Высветить всех заказчиков (таблица Customers), которые не имеют ни одного заказа (подзапрос по таблице Orders). 
 Использовать коррелированный SELECT и оператор EXISTS.
 */
 
 SELECT C.ContactName AS Customer
-FROM Northwind.Customers AS C
+FROM Northwind.dbo.Customers AS C
 WHERE NOT EXISTS 
 	(SELECT O.OrderID
-	FROM Northwind.Orders AS O 
+	FROM Northwind.dbo.Orders AS O 
 	WHERE O.CustomerID = C.CustomerID)
 
 /*12	Использование строковых функций
