@@ -30,6 +30,7 @@ namespace DAL2Messenger
             {
                 connection.ConnectionString = connectionString;
                 var command = connection.CreateCommand();
+                // ki. Такие вещи лучше сразу писать процедурой на стороне БД, потому что потом код будет разрастаться. 
                 command.CommandText =
                     @"DELETE FROM dbo.[Users] WHERE UserID =  @UserID ";
 
@@ -57,6 +58,8 @@ namespace DAL2Messenger
             {
                 connection.ConnectionString = connectionString;
                 var command = connection.CreateCommand();
+                // ki. Такие вещи лучше сразу писать процедурой на стороне БД, потому что потом код будет разрастаться. 
+                // top 1 лишнее
                 command.CommandText = "SELECT TOP 1 [UserID], [Username], [DateOfCreation], Role FROM [Users] WHERE UserID = @UserID";
 
                 var userID = command.CreateParameter();
@@ -88,6 +91,7 @@ namespace DAL2Messenger
             {
                 connection.ConnectionString = connectionString;
                 var command = connection.CreateCommand();
+                // ki. Такие вещи лучше сразу писать процедурой на стороне БД, потому что потом код будет разрастаться. 
                 command.CommandText = "SELECT [UserID], [Username], [DateOfCreation], [Role] FROM [Users]";
 
                 connection.Open();
@@ -159,6 +163,7 @@ namespace DAL2Messenger
             {
                 connection.ConnectionString = connectionString;
                 var command = connection.CreateCommand();
+                // ki. Такие вещи лучше сразу писать процедурой на стороне БД, потому что потом код будет разрастаться. 
                 command.CommandText =
                     @"BEGIN TRAN
 	                    UPDATE Users

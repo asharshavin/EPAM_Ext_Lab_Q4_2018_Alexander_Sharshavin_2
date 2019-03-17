@@ -44,6 +44,7 @@ namespace WebApplication
             private void AddBindings()
             {
                 var messengerConnectionString = "MessengerConection";
+                // Ki. надо бы еще пример получения объекта используя контейнер зависимостей. 
                 this.kernel.Bind<IUserRepository>().To<UserRepository>().WithConstructorArgument("connectionStringItem", ConfigurationManager.ConnectionStrings[messengerConnectionString]);
             }
         }

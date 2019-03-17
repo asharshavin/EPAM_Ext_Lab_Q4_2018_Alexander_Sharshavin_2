@@ -33,6 +33,8 @@ namespace DAL2MessengerTest
             var name2 = testRepo.Get(2).name;
 
             // Assert
+            // ki. я бы вообще переопределил метод equal у объекта пользователя и прям сравнивал бы данные с заранее определенными полностью
+            // на реальном проекте такой вот тест не прокатил бы
             Assert.AreEqual(name1, name1String, string.Format("Save: имя пользователя с id {0} '{1}' не соответствует имени {2}", 1, name1, name1String));
             Assert.AreEqual(name2, name2String, string.Format("Save: имя пользователя с id {0} '{1}' не соответствует имени {2}", 2, name2, name2String));
         }
@@ -51,6 +53,7 @@ namespace DAL2MessengerTest
             testRepo.Delete(1);
 
             // Assert
+            // ki. тут согласен, всё хорошо
             Assert.AreEqual(testRepo.Get(1).id, 0, string.Format("Delete: Не удален пользователь с id 1. Получено {0}, ожидается {1}", testRepo.Get(1).id, 0));
         }
 
@@ -68,6 +71,8 @@ namespace DAL2MessengerTest
             var resultName = testRepo.Get(2).name;
 
             // Assert
+            // ki. я бы вообще переопределил метод equal у объекта пользователя и прям сравнивал бы данные с заранее определенными полностью
+            // на реальном проекте такой вот тест не прокатил бы
             Assert.AreEqual<string>(resultName, name2String, string.Format("Get: Некорректное имя пользователя с id 2. Получено {0}, ожидается {1}", resultName, name2String));
 
         }
@@ -91,6 +96,7 @@ namespace DAL2MessengerTest
             }
              
             // Assert
+            // ki. это точно не релевантный тест. Надо проверить, что не только количество выбралось правильно, но и выбралсь именно те данные. 
             Assert.AreEqual(testRepo.GetAll().Count, 0, string.Format("GetAll: Некорректное количество пользователей в списке. Получено {0}, ожидается {1}", testRepo.GetAll().Count, 0));
         }
     }
