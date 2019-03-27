@@ -1,0 +1,84 @@
+﻿@using MVC2Messenger.Models
+@model ChatModel
+@{
+    ViewBag.Title = "Home Page";
+}
+<div id="Chats">
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(Model => Model.Chats)
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Chats)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @Html.ActionLink("Go", "Index", new { id = item.ChatId }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ChatId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ChatId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ChatId })
+                </td>
+            </tr>
+        }
+    </table>
+
+</div>
+<div id="Messages">
+    <table class="table">
+        <tr>
+            <th>
+                <h2>
+                    @Model.CurrentChat.Name
+                </h2>
+            </th>
+        </tr>
+        @foreach (ChatMessage msg in Model.CurrentChat.Messages)
+        {
+            <tr>
+                <td>
+                    <p>
+                        @msg.Date<br />
+                        @if (msg.User != null)
+                        {
+                            <b>@(msg.User.Username + ":")</b> @msg.Text
+                        }
+                        else
+                        {
+                            <span class="serverMes">@msg.Text</span>
+                        }
+                    </p>
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "Message", new { id = msg.MsgId }, null) |
+                    @Html.ActionLink("Delete", "Delete", "Message", new { id = msg.MsgId }, null)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<div id="inputForm">
+    @using (Html.BeginForm("Create", "Message"))
+    {
+        @Html.AntiForgeryToken()
+
+        <table>
+            <tr>
+                <td rowspan="3">
+                    <input type="text" name="Text" />
+                </td>
+                <td>
+                    <input type="submit" value="Отправить" class="btn btn-default" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>

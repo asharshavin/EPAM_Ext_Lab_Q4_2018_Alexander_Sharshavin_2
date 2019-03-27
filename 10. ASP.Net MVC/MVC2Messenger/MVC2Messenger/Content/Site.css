@@ -1,0 +1,67 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+#Chats {
+    position: absolute;
+    width: 25%;
+    left: 1%;
+    height: 90%;
+    top: 6%;
+    background-color: #ddd;
+    text-align: left;
+}
+
+#Messages {
+    position: absolute;
+    width: 72%;
+    left: 27%;
+    height: 80%;
+    top: 6%;
+    background-color: #ddd;
+    text-align: left;
+    font-size: x-small;
+    overflow-y: scroll;
+}
+
+#inputForm {
+    position: absolute;
+    width: 72%;
+    left: 27%;
+    height: 9%;
+    top: 87%;
+    min-height: 60px;
+    background: #eee;
+    border: 2px solid silver;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+button {
+    font-weight: bold;
+    width: 100px;
+}
+
+    table, textarea {
+    width: 80%;
+}
