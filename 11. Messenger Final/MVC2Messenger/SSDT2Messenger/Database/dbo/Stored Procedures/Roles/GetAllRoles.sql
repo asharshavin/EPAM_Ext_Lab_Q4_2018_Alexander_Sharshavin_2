@@ -1,0 +1,6 @@
+﻿CREATE PROCEDURE dbo.GetAllRoles
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT [RoleID], [Name] FROM dbo.[Roles]
+END

@@ -1,0 +1,103 @@
+﻿@using MVC2Messenger.Models
+@model MessengerModel
+@{
+    if (ViewBag.IsAdmin == true)
+    { Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; }
+
+    else
+    { Layout = "~/Views/Shared/_Layout.cshtml"; }
+ }
+@{
+    ViewBag.Title = "Home Page";
+}
+<div id="Chats">
+    <p>
+        @Html.ActionLink("Create chat", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(Model => Model.Chats)
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Chats)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(@item.Name, "Index", new { id = item.ChatId })
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ChatId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ChatId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ChatId })
+                </td>
+            </tr>
+        }
+    </table>
+
+</div>
+<div id="Messages">
+    <p>
+        @Html.ActionLink("Chat users", "Index", "ChatUser", new { ChatId = Model.CurrentChat.ChatId }, null)
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                <h2>
+                    @if (Model.CurrentChat != null)
+                    {
+                        @Model.CurrentChat.Name
+                    }
+                    else
+                    {
+                        <label>{Create a chat first}</label>
+                    }
+                </h2>
+            </th>
+        </tr>
+        @if (Model.CurrentChat != null)
+        {
+            foreach (MessageModel msg in Model.CurrentChat.Messages)
+            {
+                <tr>
+                    <td>
+                        <p>
+                            @msg.Date<br />
+                            @if (msg.User != null)
+                            {
+                                <b>@(msg.User.Username + ":")</b> @msg.Text
+                            }
+                            else
+                            {
+                                <span class="serverMes">@msg.Text</span>
+                            }
+                        </p>
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", "Message", new { id = msg.MsgId }, null) |
+                        @Html.ActionLink("Delete", "Delete", "Message", new { id = msg.MsgId }, null)
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+
+<div id="inputForm">
+    @using (Html.BeginForm("Create", "Message"))
+    {
+        @Html.AntiForgeryToken()
+
+        <table>
+            <tr>
+                <td rowspan="3">
+                    <textarea name="Text" rows="3"></textarea>
+                </td>
+                <td>
+                    <input type="submit" value="Отправить" class="btn btn-default" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>

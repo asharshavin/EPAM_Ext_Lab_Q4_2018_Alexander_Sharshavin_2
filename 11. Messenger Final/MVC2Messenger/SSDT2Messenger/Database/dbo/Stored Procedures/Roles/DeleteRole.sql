@@ -1,0 +1,7 @@
+﻿CREATE PROCEDURE dbo.DeleteRole
+	@ID int
+AS
+BEGIN
+	SET NOCOUNT ON;
+	DELETE FROM dbo.Roles WHERE RoleID =  @ID
+END

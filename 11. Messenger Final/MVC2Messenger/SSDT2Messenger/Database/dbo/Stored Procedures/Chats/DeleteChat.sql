@@ -1,0 +1,7 @@
+﻿CREATE PROCEDURE dbo.DeleteChat
+	@ID int
+AS
+BEGIN
+	SET NOCOUNT ON;
+	DELETE FROM dbo.Chats WHERE ChatID =  @ID
+END

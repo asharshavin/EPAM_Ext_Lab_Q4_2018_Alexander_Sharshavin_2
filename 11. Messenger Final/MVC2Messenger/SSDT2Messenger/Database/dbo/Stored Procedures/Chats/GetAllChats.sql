@@ -1,0 +1,6 @@
+﻿CREATE PROCEDURE dbo.GetAllChats
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT [ChatID], [Name] FROM dbo.[Chats]
+END

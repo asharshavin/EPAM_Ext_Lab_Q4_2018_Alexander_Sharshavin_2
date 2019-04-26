@@ -1,0 +1,6 @@
+﻿CREATE PROCEDURE dbo.GetRole
+	@ID int
+AS
+BEGIN
+	SELECT  RoleID, Name FROM dbo.Roles WHERE RoleID = @ID
+END
