@@ -14,8 +14,8 @@ namespace MVC2Messenger.Controllers
         private const string MessengerConnectionString = "MessengerConection";
         private UnitOfWork repo = new UnitOfWork(MessengerConnectionString);
 
-        public static ChatModel MapDAL2Model(Chat objectDAL)
-        {
+        public static ChatModel MapDAL2Model(Chat objectDAL)//pn всмысле? а automapper мы для чего проходили?
+		{
             return new ChatModel
             {
                 ChatId = objectDAL.ChatId,
@@ -60,32 +60,32 @@ namespace MVC2Messenger.Controllers
 
             if (messengerModel.CurrentChat == null && messengerModel.Chats.Count > 0)
             {
-                messengerModel.CurrentChat = messengerModel.Chats[0];
-            }
+                messengerModel.CurrentChat = messengerModel.Chats[0];//pn похоже на костыль
+			}
 
             if (messengerModel.CurrentChat != null )
             {
-                messengerModel.CurrentChat.Messages = repo.Messages.GetChatMessages(messengerModel.CurrentChat.ChatId, 100).Select(x => MessageController.MapDAL2Model(x)).ToList();
-            }
+                messengerModel.CurrentChat.Messages = repo.Messages.GetChatMessages(messengerModel.CurrentChat.ChatId, 100).Select(x => MessageController.MapDAL2Model(x)).ToList();//pn хардкод. и эту настройку тоже лучше в конфиг.
+			}
 
             messengerModel.CurrentUser = currentUser;
 
             var rolePrincipal = (RolePrincipal)User;
-            var IsAdmin = rolePrincipal.IsInRole("Admin");
+            var IsAdmin = rolePrincipal.IsInRole("Admin");//pn хардкод.
 
-            ViewBag.IsAdmin = IsAdmin;
+			ViewBag.IsAdmin = IsAdmin;
 
             return View(messengerModel);
         }
 
         public ActionResult Find(string name)
         {
-            if (name is null)
-            {
+            if (name is null)//pn Игорь же говорил про то, что лучше избегать подобной проверки. Чем тебя == null не нравится?
+			{
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ViewBag.name = name;
-            return View(messengerModel);
+            ViewBag.name = name;//pn я бы не поленился и сделать специальную viewModel для этого случае, чем использовать viewBag
+			return View(messengerModel);
         }
 
         public ActionResult Details(int? id)
@@ -95,8 +95,8 @@ namespace MVC2Messenger.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var chat = repo.Chats.Get((int)id);
-            if (chat == null || chat.ChatId == 0)
-            {
+            if (chat == null || chat.ChatId == 0)//pn хардкод
+			{
                 return HttpNotFound();
             }
 
@@ -115,8 +115,8 @@ namespace MVC2Messenger.Controllers
             if (ModelState.IsValid)
             {
                 var chat = MapModel2DAL(chatModel);
-                repo.Chats.Save(chat);
-                return RedirectToAction("Index");
+                repo.Chats.Save(chat);//pn а если ошибка, то что?
+				return RedirectToAction("Index");
             }
 
             return View(chatModel);
@@ -138,8 +138,8 @@ namespace MVC2Messenger.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ChatId,Name")] ChatModel chatModel)
-        {
+        public ActionResult Edit([Bind(Include = "ChatId,Name")] ChatModel chatModel)//pn тебе не кажется, что у тебя create и edit похожи? мб объединить в один?
+		{
             if (ModelState.IsValid)
             {
                 var chat = MapModel2DAL(chatModel);
@@ -172,8 +172,8 @@ namespace MVC2Messenger.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
+        protected override void Dispose(bool disposing)//pn зачем он тебе здесь? ты ж не с неуправляемыми ресурсами работаешь
+		{
             if (disposing)
             {
             }

@@ -5,7 +5,7 @@ namespace MVC2Messenger.Models
 {
     public class ChatModel
     {
-        public static double MessageTimeEditInSeconds = 60 ;
+        public static double MessageTimeEditInSeconds = 60 ;//pn такие настройки лучше выносить в конфиг для простоты администрирования.
 
         public int ChatId { get; set; }
 

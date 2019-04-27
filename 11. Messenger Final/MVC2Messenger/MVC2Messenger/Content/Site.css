@@ -23,7 +23,7 @@ textarea {
     max-width: 280px;
 }
 
-#Chats {
+#Chats {/*вообще, в стилях принято использовать классы, идентификаторы для событий и прочего js*/
     position: absolute;
     width: 25%;
     left: 1%;

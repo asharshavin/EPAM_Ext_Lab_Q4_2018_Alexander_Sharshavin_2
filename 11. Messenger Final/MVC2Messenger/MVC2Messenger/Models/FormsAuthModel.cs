@@ -12,8 +12,8 @@ namespace MVC2Messenger.Models
         public string Password { get; set; }
     }
 
-    public class RegisterModel
-    {
+    public class RegisterModel//pn все же лучше выносить классы в отдельные файлы
+	{
         [Required]
         public string Name { get; set; }
 

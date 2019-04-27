@@ -52,8 +52,8 @@ namespace MVC2Messenger.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var role = repo.Roles.Get((int)id);
-            if (role == null || role.id == 0)
-            {
+            if (role == null || role.id == 0)//pn хардкод
+			{
                 return HttpNotFound();
             }
 

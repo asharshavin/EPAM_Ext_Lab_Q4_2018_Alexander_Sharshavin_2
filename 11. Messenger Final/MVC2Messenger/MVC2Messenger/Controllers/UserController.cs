@@ -20,8 +20,8 @@ namespace MVC2Messenger.Controllers
                 UserId = objectDAL.id,
                 Username = objectDAL.name,
                 RoleId = objectDAL.role,
-                Role = RoleController.MapDAL2Model(repo.Roles.Get(objectDAL.role))
-            };
+                Role = RoleController.MapDAL2Model(repo.Roles.Get(objectDAL.role))//pn не, так нельзя. Контроллеры должны быть независимыми друг от друга для гибкости приложения.
+			};
         }
 
         public static User MapModel2DAL(UserModel objectModel)

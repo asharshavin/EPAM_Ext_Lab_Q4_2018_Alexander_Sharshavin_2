@@ -54,8 +54,8 @@ namespace MVC2Messenger.Controllers
             {
                var chatUser = new ChatUser()
                 {
-                    UserId = ChatController.messengerModel.CurrentUser.UserId,
-                    ChatId = id,
+                    UserId = ChatController.messengerModel.CurrentUser.UserId,//pn прям раздолье для NullReferenceException
+				   ChatId = id,
                 };
                 repo.ChatUsers.Save(chatUser);
                 return RedirectToAction("Index", "Chat", new { id = id });
